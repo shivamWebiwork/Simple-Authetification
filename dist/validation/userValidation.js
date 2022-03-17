@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userValidator = void 0;
+exports.UserValidation = void 0;
 const joi_1 = __importDefault(require("joi"));
 const schema = joi_1.default.object({
     firstname: joi_1.default.string().min(3).max(20).required(),
@@ -20,7 +20,7 @@ const schema = joi_1.default.object({
     email: joi_1.default.string().email().max(256).required(),
     password: joi_1.default.string().min(3).max(20).required(),
 });
-class userValidator {
+class UserValidation {
     static validateUser(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield schema.validate(req.body);
@@ -31,5 +31,5 @@ class userValidator {
         });
     }
 }
-exports.userValidator = userValidator;
+exports.UserValidation = UserValidation;
 //# sourceMappingURL=userValidation.js.map

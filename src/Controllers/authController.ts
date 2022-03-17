@@ -1,9 +1,6 @@
-
-
 import { IUser } from "../Models/IuserModel";
-
 import { Request, Response } from "express";
-import { AuthService } from "../service/authService";
+import { AuthService } from "../service/indexService";
 
 export class AuthController {
   public static authUser = async (req: Request, res: Response) => {
@@ -18,9 +15,8 @@ export class AuthController {
       }
 
     } catch (error) {
-     res.send(500);
+     res.send(500);  
     }
   };
 }
-
 

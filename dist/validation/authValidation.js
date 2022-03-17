@@ -12,13 +12,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.authValidator = exports.loginSchema = void 0;
+exports.AuthValidation = exports.loginSchema = void 0;
 const joi_1 = __importDefault(require("joi"));
 exports.loginSchema = joi_1.default.object({
     email: joi_1.default.string().email().max(50).required(),
     password: joi_1.default.string().min(6).max(15).required(),
 });
-class authValidator {
+class AuthValidation {
     static authUser(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield exports.loginSchema.validate(req.body);
@@ -29,5 +29,5 @@ class authValidator {
         });
     }
 }
-exports.authValidator = authValidator;
+exports.AuthValidation = AuthValidation;
 //# sourceMappingURL=authValidation.js.map

@@ -8,7 +8,7 @@ const schema = Joi.object({
   password: Joi.string().min(3).max(20).required(),
 });
 
-export class userValidator {
+export class UserValidation {
   public static async validateUser(
     req: Request,
     res: Response,

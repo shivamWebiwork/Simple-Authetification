@@ -1,17 +1,11 @@
 import express, { Router } from "express";
-import { AuthController } from "../Controllers/authController";
-import { authValidator } from "../validation/authValidation";
+import { AuthValidation } from "../validation/indexValidation";
+import { AuthController } from "../Controllers/indexController";
 
 const Joi = require("joi");
 const authRoutes = express.Router();
-authRoutes.post("/login",authValidator.authUser,(req,res)=>{    
+authRoutes.post("/login",AuthValidation.authUser,(req,res)=>{ 
+      
    AuthController.authUser(req,res);
 })
-
-
-// userRoutes.post('/register',userValidator.validateUser,(req,res)=>{
-    
-//     registerController.createUser(req,res);
-// }) 
-
 export default authRoutes;

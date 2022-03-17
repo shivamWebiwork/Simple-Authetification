@@ -4,14 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-// import { registerController } from "../Controllers/registerController";
-const userController_1 = require("../Controllers/userController");
+const indexController_1 = require("../Controllers/indexController");
 const auth_1 = require("../middleware/auth");
-const userValidation_1 = require("../validation/userValidation");
+const indexValidation_1 = require("../validation/indexValidation");
 const userRoutes = express_1.default.Router();
-userRoutes.get("/", auth_1.JWT.verifyToken, userController_1.UserController.user);
-userRoutes.post("/", userValidation_1.userValidator.validateUser, (req, res) => {
-    userController_1.UserController.createUser(req, res);
+userRoutes.get("/", auth_1.JWT.verifyToken, indexController_1.UserController.user);
+userRoutes.post("/", indexValidation_1.UserValidation.validateUser, (req, res) => {
+    indexController_1.UserController.createUser(req, res);
 });
 exports.default = userRoutes;
 //# sourceMappingURL=userRouter.js.map

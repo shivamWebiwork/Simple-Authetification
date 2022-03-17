@@ -2,7 +2,6 @@ import { ILogin, IUser } from "../Models/IuserModel";
 import { pool } from "../db/db";
 import { QueryResult } from "pg";
 import bcrypt from "bcryptjs";
-
 const jwt = require("jsonwebtoken");
 
 export class AuthService {
@@ -17,24 +16,25 @@ export class AuthService {
         authEmail.rows[0].password
       );
 
-
       if (compare) {
         const token = jwt.sign({ email: user.email }, process.env.SECRET, {
           expiresIn: process.env.TOKEN_LIFE,
         });
-        const refreshToken = jwt.sign({email:user.email}, process.env.REFRESHTOKEN,{
-        }); 
+        const refreshToken = jwt.sign(
+          { email: user.email },
+          process.env.REFRESHTOKEN,
+          {}
+        );
         const obj = {
           token: token,
           refreshToken: refreshToken,
         };
         return obj;
       } else {
-       return null;
+        return null;
       }
-    } 
-    else {
-      return null;
     }
+
+    return null;
   }
 }

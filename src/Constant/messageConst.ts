@@ -8,5 +8,4 @@ export const CONSTANTS = {
     pswIncorrect:"Password incorrect",
     errorExcuting: "Error executing query",
     errorAcquiring: "Error acquiring client",
-
 }

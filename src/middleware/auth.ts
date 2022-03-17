@@ -5,19 +5,23 @@ const jwt = require("jsonwebtoken");
 const config = process.env;
 
 export class JWT {
- public static verifyToken = async (req, res, next) => {
+  public static verifyToken = async (req, res, next) => {
     try {
       let token = req.headers.authorization;
-  
+
       if (token) {
-        await jwt.verify(token, process.env.SECRET, function (err, verifiedJwt) {
-          if (err) {
-            res.status(401).send(err.message); //
-          } else {
-            req.user = verifiedJwt;
-            return next();
+        await jwt.verify(
+          token,
+          process.env.SECRET,
+          function (err, verifiedJwt) {
+            if (err) {
+              res.status(401).send(err.message); //
+            } else {
+              req.user = verifiedJwt;
+              return next();
+            }
           }
-        });
+        );
       } else {
         res.send(CONSTANTS.verifiyTokenRequired);
       }
@@ -25,7 +29,4 @@ export class JWT {
       res.json(400);
     }
   };
-  
 }
-
-

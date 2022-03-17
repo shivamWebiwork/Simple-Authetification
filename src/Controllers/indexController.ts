@@ -1,8 +1,2 @@
- import {UserController} from '../Controllers/userController';
- import {AuthController} from '../Controllers/authController';
-
-//  export class IndexController{
-// public static userController(){}
-    
-//  }
-
+export const {UserController} = require('../Controllers/userController')
+export const {AuthController} = require('../Controllers/authController');

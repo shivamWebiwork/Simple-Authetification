@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//  export class IndexController{
-// public static userController(){}
-//  }
+exports.AuthController = exports.UserController = void 0;
+exports.UserController = require('../Controllers/userController').UserController;
+exports.AuthController = require('../Controllers/authController').AuthController;
 //# sourceMappingURL=indexController.js.map

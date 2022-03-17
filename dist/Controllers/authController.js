@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
-const authService_1 = require("../service/authService");
+const indexService_1 = require("../service/indexService");
 class AuthController {
 }
 exports.AuthController = AuthController;
@@ -19,7 +19,7 @@ _a = AuthController;
 AuthController.authUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let user = req.body;
-        let userLogin = yield authService_1.AuthService.authUser(user);
+        let userLogin = yield indexService_1.AuthService.authUser(user);
         if (userLogin == null) {
             res.send(401);
         }

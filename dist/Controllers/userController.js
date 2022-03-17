@@ -11,8 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
-const userService_1 = require("../service/userService");
-// import { UserService } from "../service/registerService";
+const indexService_1 = require("../service/indexService");
 class UserController {
 }
 exports.UserController = UserController;
@@ -20,7 +19,7 @@ _a = UserController;
 UserController.user = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let user = req.body;
-        let userRegister = yield userService_1.UsersService.user(user);
+        let userRegister = yield indexService_1.UserService.user(user);
         return res.send(userRegister);
     }
     catch (_b) {
@@ -30,7 +29,7 @@ UserController.user = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 UserController.createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let user = req.body;
-        let userRegister = yield userService_1.UsersService.createUser(user);
+        let userRegister = yield indexService_1.UserService.createUser(user);
         if (userRegister == null) {
             res.send(403);
         }
@@ -39,7 +38,7 @@ UserController.createUser = (req, res) => __awaiter(void 0, void 0, void 0, func
         }
     }
     catch (error) {
-        res.json(500);
+        res.send(500);
     }
 });
 //# sourceMappingURL=userController.js.map

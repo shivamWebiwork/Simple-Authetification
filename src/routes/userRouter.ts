@@ -1,13 +1,13 @@
 import express, { Router } from "express";
-// import { registerController } from "../Controllers/registerController";
-import { UserController } from "../Controllers/userController";
+
+import { UserController } from "../Controllers/indexController";
 import { JWT } from "../middleware/auth";
-import { userValidator } from "../validation/userValidation";
+import { UserValidation } from "../validation/indexValidation";
 
 const userRoutes = express.Router();
 
 userRoutes.get("/", JWT.verifyToken, UserController.user);
-userRoutes.post("/", userValidator.validateUser, (req, res) => {
+userRoutes.post("/", UserValidation.validateUser, (req, res) => {
   UserController.createUser(req, res);
 });
 
