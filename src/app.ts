@@ -1,5 +1,4 @@
 require("dotenv").config();
-console.log(process.env.PORT);
 
 import express from "express";
 import bodyParser from "body-parser";

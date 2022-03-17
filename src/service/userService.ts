@@ -10,7 +10,6 @@ export class UsersService  {
     const User: QueryResult = await pool.query(
       `SELECT firstname, lastname, email, password FROM users`
     );
-
     return User.rows;
   }
 

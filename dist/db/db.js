@@ -11,6 +11,14 @@ exports.pool = new Pool({
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
-    port: 5432,
+    port: parseInt(process.env.DB_PORT),
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+exports.pool.connect((err, result) => {
+    if (err)
+        throw err;
+    console.log("database connected");
 });
 //# sourceMappingURL=db.js.map
